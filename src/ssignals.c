@@ -3,7 +3,7 @@
 #include "../include/common.h"
 #include "../include/ssignals.h"
 
-void initSignals()
+void initSignals(void)
 {
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
@@ -11,7 +11,7 @@ void initSignals()
 	signal(SIGCHLD, handlerChild);
 }
 
-void checkZombie()
+void checkZombie(void)
 {
 	while (waitpid(-1, NULL, WNOHANG) > 0);
 }
